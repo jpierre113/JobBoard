@@ -15,10 +15,10 @@ class App extends Component {
             const response = await fetch('http://localhost:8081/job/list')
             const data = await response.json()
             this.setState({
-            courses: data,
+            jobs: data,
              })
         } catch (error) {
-            console.log('Error retrieving courses!')
+            console.log('Error retrieving job!')
             console.log(error)
         }
     }
