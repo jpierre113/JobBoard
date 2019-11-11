@@ -39,7 +39,7 @@ public class JobController {
         return jobRepository.findById(jobId).orElseThrow(() -> new JobNotFoundException("Job", "id", jobId));
     }
 
-    @PutMapping("/job/{id}")
+    @PutMapping("/edit/{id}")
     public Job updateJob(@PathVariable(value = "id") Long jobId,
                            @Valid @RequestBody Job jobDetails) {
 
@@ -50,7 +50,7 @@ public class JobController {
         return updateJob;
     }
 
-    @DeleteMapping("/job/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteJob(@PathVariable(value = "id") Long jobId) {
         Job job = jobRepository.findById(jobId).orElseThrow(() -> new JobNotFoundException("Job", "id", jobId));
 
