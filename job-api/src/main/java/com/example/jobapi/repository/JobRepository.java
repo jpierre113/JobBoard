@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface JobRepository extends JpaRepository<Job, Long> {
-    void delete(Optional<Job> job);
+//    void delete(Optional<Job> );
 }

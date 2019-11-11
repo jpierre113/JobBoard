@@ -1,9 +1,10 @@
 package com.example.jobapi.model;
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "job")
-public class Job {
+public class Job implements Serializable {
 
     @Id
     @Column

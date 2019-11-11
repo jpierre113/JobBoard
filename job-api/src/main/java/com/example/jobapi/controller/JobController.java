@@ -1,5 +1,6 @@
 package com.example.jobapi.controller;
 
+import com.example.jobapi.exception.JobNotFoundException;
 import com.example.jobapi.model.Job;
 import com.example.jobapi.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,14 +29,22 @@ public class JobController {
         return jobRepository.findAll();
     }
 
+    @PostMapping("/add")
+    public Job createJob(@Valid @RequestBody Job job) {
+        return jobRepository.save(job);
+    }
+
     @GetMapping("/job/{id}")
-    public Optional<Job> getJobById(@PathVariable(value = "id") Long jobId) {
-        return jobRepository.findById(jobId);
+    public Job getJobById (@PathVariable(value = "id") Long jobId){
+        return jobRepository.findById(jobId).orElseThrow(() -> new JobNotFoundException("Job", "id", jobId));
     }
 
     @PutMapping("/job/{id}")
-    public Job updatejob(@PathVariable(value = "id") Long jobId,
+    public Job updateJob(@PathVariable(value = "id") Long jobId,
                            @Valid @RequestBody Job jobDetails) {
+
+        jobRepository.findById(jobId).orElseThrow(() -> new JobNotFoundException("Job", "id", jobId));
+
         jobDetails.setId(jobId);
         Job updateJob = jobRepository.save(jobDetails);
         return updateJob;
@@ -43,9 +52,10 @@ public class JobController {
 
     @DeleteMapping("/job/{id}")
     public ResponseEntity<?> deleteJob(@PathVariable(value = "id") Long jobId) {
-        Optional<Job> job = jobRepository.findById(jobId);
+        Job job = jobRepository.findById(jobId).orElseThrow(() -> new JobNotFoundException("Job", "id", jobId));
 
         jobRepository.delete(job);
         return ResponseEntity.ok().build();
     }
+
 }
