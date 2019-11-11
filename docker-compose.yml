@@ -30,7 +30,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=pgdev
+      - POSTGRES_DB=jobs
   job-api:
     image: maven:3.6.1-jdk-8
     ports:
