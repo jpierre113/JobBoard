@@ -28,6 +28,11 @@ nav a{
 }
 
 .searchJob{
- background-color: lightGray;
+ /* background-color: lightGray; */
 
+}
+
+.JobForm{
+  background-size: 100%;
+  height: 650px;
 }
