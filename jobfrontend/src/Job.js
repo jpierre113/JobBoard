@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import CourseEditForm from './CourseEditForm';
 
 class Job extends Component{
   render(){
