@@ -16,8 +16,9 @@ const Home = (props) => {
         id="searchJob"
         placeholder="Enter Job Title"
         />
-        </form>
         <input type="submit" value="Search" />
+        </form>
+
       </div>
     );
 }
