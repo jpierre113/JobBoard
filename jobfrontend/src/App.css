@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-image: url("/desk.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 nav{
@@ -17,7 +20,7 @@ nav a{
 }
 
 .Home{
-  background-image: url("/desk.jpg");
+  /* background-image: url("/desk.jpg"); */
   background-size: 100%;
   background-repeat: no-repeat;
   width:auto;
@@ -26,4 +29,5 @@ nav a{
 
 .searchJob{
  background-color: lightGray;
+
 }
