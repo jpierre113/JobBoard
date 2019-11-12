@@ -5,32 +5,31 @@ import './App.css';
 import './JobPosts';
 
 class App extends Component {
+  render(){
+  return (
+    <div className="App">
 
-  constructor(props){
-    super(props);
+    <Router>
+        <div>
+          <nav>
+            <Link to="/" className="link">Signup / Login</Link>{' '}
+            <Link to="/jobposts" className="link">Post a Job</Link>{JobPosts}
 
-    }
-    async componentDidMount() {
-        try {
-            const response = await fetch('http://localhost:8081/job/list')
-            const data = await response.json()
-            this.setState({
-            jobs: data,
-             })
-        } catch (error) {
-            console.log('Error retrieving job!')
-            console.log(error)
-        }
-    }
+          </nav>
+            <Route exact path="/" <JobPosts />
+              </div>
+            } />
+            <Route path="/jobposts" component={JobPosts} />
 
-      render() {
-        return (
-          <div>
-            <JobPosts/>
-          </div>
-        )
+        </div>
+      </Router>
+
+
+    </div>
+    );
+
   }
 
-}
+
 
 export default App;
