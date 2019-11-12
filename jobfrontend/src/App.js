@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
-
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from "react-router-dom";
 
-import './JobPosts';
+import JobForm from './JobForm';
+
 
 class App extends Component {
   render(){
@@ -12,14 +17,11 @@ class App extends Component {
     <Router>
         <div>
           <nav>
-            <Link to="/" className="link">Signup / Login</Link>{' '}
-            <Link to="/jobposts" className="link">Post a Job</Link>{JobPosts}
-
+            <Link to="/" className="link">Home</Link>{' '}
+            <Link to="/jobform" className="link">Post a Job</Link>{JobForm}
           </nav>
-            <Route exact path="/" <JobPosts />
-              </div>
-            } />
-            <Route path="/jobposts" component={JobPosts} />
+            <Route exact path="/" />
+            <Route path="/jobform" component={JobForm}/>
 
         </div>
       </Router>
@@ -29,7 +31,7 @@ class App extends Component {
     );
 
   }
-
+}
 
 
 export default App;

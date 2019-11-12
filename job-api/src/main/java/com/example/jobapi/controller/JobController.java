@@ -38,7 +38,7 @@ public class JobController {
     public Job getJobById (@PathVariable(value = "id") Long jobId){
         return jobRepository.findById(jobId).orElseThrow(() -> new JobNotFoundException("Job", "id", jobId));
     }
-
+    //PUT needs all columns to insert data
     @PutMapping("/edit/{id}")
     public Job updateJob(@PathVariable(value = "id") Long jobId,
                            @Valid @RequestBody Job jobDetails) {
