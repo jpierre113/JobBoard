@@ -34,7 +34,7 @@ class JobList extends Component {
           body: JSON.stringify({
             jobTitle: job.jobTitle,
             companyName: job.companyName,
-            location: job.locations,
+            location: job.location,
             salary: job.salary
           })
         })
@@ -60,7 +60,7 @@ class JobList extends Component {
             id: jobId,
             jobTitle: job.jobTitle,
             companyName: job.companyName,
-            location: job.locations,
+            location: job.location,
             salary: job.salary
 
           })
@@ -79,7 +79,7 @@ class JobList extends Component {
 
     deleteJob = async (job, jobId, index) => {
       try {
-          const deleteJobResponse = await fetch('http://localhost:8081/job/delete/{id}', {
+          const deleteJobResponse = await fetch('http://localhost:8081/job/delete/'+ jobId, {
           method: 'delete',
           headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -108,7 +108,7 @@ class JobList extends Component {
         return (
             <div>
                 <h1>Jobs</h1>
-                <JobForm createJob={this.createJob}/>
+
                 {
                 this.state.apiDataLoaded &&
                 this.state.jobs.map((job, index) => {
@@ -118,7 +118,7 @@ class JobList extends Component {
                           key={index}
                           editJob={this.editJob}
                           index ={index}
-                          deleteJob={this.deleteJob}
+
                           />
                   )})
                 }

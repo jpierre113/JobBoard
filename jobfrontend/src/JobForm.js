@@ -52,7 +52,7 @@ class JobForm extends Component {
         <input
         type="text"
         label="location"
-        value={this.locations}
+        value={this.location}
         onChange={this.handleChange}
         id="location"
         placeholder="Location"

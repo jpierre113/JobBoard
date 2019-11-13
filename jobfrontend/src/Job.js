@@ -7,7 +7,7 @@ class Job extends Component{
       <div>
           <p>{this.props.jobTitle}</p>
           <p>{this.props.companyName}</p>
-          <p>{this.props.locations}</p>
+          <p>{this.props.location}</p>
           <p>{this.props.salary}</p>
 
           <JobEditForm editJob={this.props.editJob} jobId={this.props.id} index={this.props.index}/>
