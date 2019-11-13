@@ -3,21 +3,21 @@ import React, { Component } from 'react';
 class JobForm extends Component {
 
   state = {
-    newJobForm: {}
+    newJob: {}
   }
 
   handleChange = (event) => {
     const attributeToChange = event.target.name
         const newValue = event.target.value
 
-        const updatedNewCourse = { ...this.state.newCourse }
-        updatedNewCourse[attributeToChange] = newValue
-        this.setState({ newCourse: updatedNewCourse })
+        const updatedNewJob = { ...this.state.newJob }
+        updatedNewJob[attributeToChange] = newValue
+        this.setState({ newJobForm: updatedNewJob })
     }
 
     handleSubmit = (event) => {
     event.preventDefault()
-    this.props.createCourse(this.state.newCourse)
+    this.props.createJob(this.state.newJob)
 }
   render(){
     return(
