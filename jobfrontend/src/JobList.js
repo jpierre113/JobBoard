@@ -105,15 +105,15 @@ class JobList extends Component {
                 {
                 this.state.apiDataLoaded &&
                 this.state.jobs.map((job, index) => {
-                    return (
-                        <Job
-                            {...job}
-                            key={index}
-                            editJob={this.editJob}
-                            index ={index}
-                            deleteJob={this.deleteJob}
-                            />
-                        )                    })
+                  return (
+                      <Job
+                          {...job}
+                          key={index}
+                          editJob={this.editJob}
+                          index ={index}
+                          deleteJob={this.deleteJob}
+                          />
+                  )})
                 }
             </div>
         )
