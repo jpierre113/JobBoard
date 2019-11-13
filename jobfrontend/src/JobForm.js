@@ -17,52 +17,52 @@ class JobForm extends Component {
 
     handleSubmit = (event) => {
     event.preventDefault()
-    this.props.createJob(this.state.newJob)
+    this.createJob(this.state.newJob)
 }
   render(){
     return(
       <div className="JobForm">
       <h1>Post a Job</h1>
 
-      <form onSubmit={props.submitForm}>
+      <form onSubmit={this.submitForm}>
       <input
       type="text"
       label="jobTitle"
-      value={props.jobTitle}
-      onChange={props.handleJobTitleChange}
+      value={this.jobTitle}
+      onChange={this.handleJobTitleChange}
       id="jobTitle"
       placeholder="Job Title"
       />
       </form>
 
-      <form onSubmit={props.submitForm}>
+      <form onSubmit={this.submitForm}>
       <input
       type="text"
       label="companyName"
-      value={props.companyName}
-      onChange={props.handleCompanyNameChange}
+      value={this.companyName}
+      onChange={this.handleCompanyNameChange}
       id="companyName"
       placeholder="Company Name"
       />
       </form>
 
-      <form onSubmit={props.submitForm}>
+      <form onSubmit={this.submitForm}>
       <input
       type="text"
       label="location"
-      value={props.locations}
-      onChange={props.handleLocationChange}
+      value={this.locations}
+      onChange={this.handleLocationChange}
       id="location"
       placeholder="Location"
       />
       </form>
 
-      <form onSubmit={props.submitForm}>
+      <form onSubmit={this.submitForm}>
       <input
       type="text"
       label="salary"
-      value={props.salary}
-      onChange={props.handleSalaryChange}
+      value={this.salary}
+      onChange={this.handleSalaryChange}
       id="salary"
       placeholder="Salary"
       />
