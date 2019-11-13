@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const JobForm = (props) => {
+class JobForm extends Component {
 
+  state = {
+    newJobForm: {}
+  }
+
+  handleChange = (event) => {
+    const attributeToChange = event.target.name
+        const newValue = event.target.value
+
+        const updatedNewCourse = { ...this.state.newCourse }
+        updatedNewCourse[attributeToChange] = newValue
+        this.setState({ newCourse: updatedNewCourse })
+    }
+
+    handleSubmit = (event) => {
+    event.preventDefault()
+    this.props.createCourse(this.state.newCourse)
+}
+  render(){
     return(
       <div className="JobForm">
       <h1>Post a Job</h1>
@@ -55,4 +73,5 @@ const JobForm = (props) => {
       </div>
     );
   }
+}
  export default JobForm;
