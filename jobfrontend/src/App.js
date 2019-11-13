@@ -11,6 +11,23 @@ import Home from './Home';
 
 
 class App extends Component {
+  constructor(props){
+    super(props);
+
+    }
+    async componentDidMount() {
+        try {
+            const response = await fetch('http://localhost:8080/job/list')
+            const data = await response.json()
+            this.setState({
+            jobs: data,
+             })
+        } catch (error) {
+            console.log('Error retrieving jobs!')
+            console.log(error)
+        }
+    }
+
   render(){
   return (
     <div className="App">
