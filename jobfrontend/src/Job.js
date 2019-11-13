@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import JobEditForm from './JobEditForm';
 class Job extends Component{
+
   render(){
     return (
       <div>
@@ -8,7 +9,8 @@ class Job extends Component{
           <p>{this.props.companyName}</p>
           <p>{this.props.locations}</p>
           <p>{this.props.salary}</p>
-          <JobEditForm editJob={this.props.editJob} courseId={this.props.id} index={this.props.index}/>
+
+          <JobEditForm editJob={this.props.editJob} jobId={this.props.id} index={this.props.index}/>
 
       </div>
         )
