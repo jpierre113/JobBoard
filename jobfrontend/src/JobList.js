@@ -13,7 +13,7 @@ class JobList extends Component {
 
     async componentDidMount() {
         try {
-            const response = await fetch('http://localhost:8080/job/list')
+            const response = await fetch('http://localhost:8081/job/list')
             const json = await response.json();
             this.setState({
             jobs: json,
@@ -25,7 +25,7 @@ class JobList extends Component {
 
     createJob = async (job, index) => {
       try {
-          const newJobResponse = await fetch('http://localhost:8080/job/add', {
+          const newJobResponse = await fetch('http://localhost:8081/job/add', {
           method: 'post',
           headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -48,7 +48,7 @@ class JobList extends Component {
 
     editJob = async (job, jobId, index) => {
       try {
-          const editJobResponse = await fetch('http://localhost:8080/job/edit/{id}', {
+          const editJobResponse = await fetch('http://localhost:8081/job/edit/{id}', {
           method: 'put',
           headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -74,7 +74,7 @@ class JobList extends Component {
 
     deleteJob = async (job, jobId, index) => {
       try {
-          const deleteJobResponse = await fetch('http://localhost:8080/job/delete/{id}', {
+          const deleteJobResponse = await fetch('http://localhost:8081/job/delete/{id}', {
           method: 'delete',
           headers: {
             'Accept': 'application/json, text/plain, */*',
