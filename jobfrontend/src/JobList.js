@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Job from './Job';
 import JobForm from './JobForm';
-import JobDeleteForm from './JobDeleteForm';
 
 class JobList extends Component {
 
