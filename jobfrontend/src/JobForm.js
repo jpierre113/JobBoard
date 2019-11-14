@@ -13,10 +13,15 @@ class JobForm extends Component {
         const updatedNewJob = { ...this.state.newJob }
         updatedNewJob[attributeToChange] = newValue
         this.setState({ newJob: updatedNewJob })
+        console.log(updatedNewJob);
+        console.log(this.state.newJob);
+        console.log(newValue);
+        console.log(attributeToChange);
     }
 
     handleSubmit = (event) => {
     event.preventDefault()
+    console.log(this.state.newJob);
     this.props.createJob(this.state.newJob, this.props.index)
 }
   render(){
@@ -28,6 +33,7 @@ class JobForm extends Component {
         <div>
         <label>Job Title</label>
           <input
+          name="jobTitle"
           type="text"
           label="jobTitle"
           value={this.jobTitle}
@@ -41,6 +47,7 @@ class JobForm extends Component {
         <div>
         <label>Company</label>
           <input
+          name="companyName"
           type="text"
           label="companyName"
           value={this.companyName}
@@ -53,6 +60,7 @@ class JobForm extends Component {
         <div>
         <label>Location</label>
           <input
+          name="location"
           type="text"
           label="location"
           value={this.location}
@@ -65,6 +73,7 @@ class JobForm extends Component {
         <div>
         <label>Salary</label>
           <input
+          name="salary"
           type="text"
           label="salary"
           value={this.salary}

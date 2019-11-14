@@ -25,6 +25,7 @@ class JobList extends Component {
 
     createJob = async (job, index) => {
       try {
+        console.log(job)
           const newJobResponse = await fetch('http://localhost:8081/job/add', {
           method: 'post',
           headers: {
