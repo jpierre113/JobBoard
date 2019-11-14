@@ -24,7 +24,6 @@ class JobList extends Component {
 
     createJob = async (job, index) => {
       try {
-        console.log(job)
           const newJobResponse = await fetch('http://localhost:8081/job/add', {
           method: 'post',
           headers: {
@@ -39,7 +38,6 @@ class JobList extends Component {
           })
         })
           const json = await newJobResponse.json();
-          console.log(json);
           const updatedJobList = [...this.state.jobs]
           updatedJobList.push(json)
           this.setState({jobs: updatedJobList})
@@ -69,8 +67,6 @@ class JobList extends Component {
           let updatedJobList = [...this.state.jobs]
           const json = await editJobResponse.json();
           updatedJobList[index] = json
-          console.log(index)
-          console.log(editJobResponse)
           this.setState({jobs: updatedJobList})
         } catch(error) {
             console.log('Error with editing Job!')
