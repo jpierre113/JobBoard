@@ -25,6 +25,7 @@ class JobList extends Component {
 
     createJob = async (job, index) => {
       try {
+        console.log(job)
           const newJobResponse = await fetch('http://localhost:8081/job/add', {
           method: 'post',
           headers: {
@@ -32,11 +33,14 @@ class JobList extends Component {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            name: job.name,
-            code: job.code
+            jobTitle: job.jobTitle,
+            companyName: job.companyName,
+            location: job.location,
+            salary: job.salary
           })
         })
           const json = await newJobResponse.json();
+          console.log(json);
           const updatedJobList = [...this.state.jobs]
           updatedJobList.push(json)
           this.setState({jobs: updatedJobList})
@@ -48,7 +52,7 @@ class JobList extends Component {
 
     editJob = async (job, jobId, index) => {
       try {
-          const editJobResponse = await fetch('http://localhost:8081/job/edit/{id}', {
+          const editJobResponse = await fetch('http://localhost:8081/job/edit/'+ jobId, {
           method: 'put',
           headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -56,8 +60,11 @@ class JobList extends Component {
           },
           body: JSON.stringify({
             id: jobId,
-            name: job.name,
-            code: job.code
+            jobTitle: job.jobTitle,
+            companyName: job.companyName,
+            location: job.location,
+            salary: job.salary
+
           })
         })
           let updatedJobList = [...this.state.jobs]
@@ -73,8 +80,8 @@ class JobList extends Component {
     }
 
     deleteJob = async (job, jobId, index) => {
-      try {
-          const deleteJobResponse = await fetch('http://localhost:8081/job/delete/{id}', {
+
+          const deleteJobResponse = await fetch('http://localhost:8081/job/delete/'+ jobId, {
           method: 'delete',
           headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -82,24 +89,27 @@ class JobList extends Component {
           },
           body: JSON.stringify({
             id: jobId,
-            name: null,
-            code: null
+            jobTitle: null,
+            companyName: null,
+            location: null,
+            salary: null
           })
         })
-          let deleteJobList = [...this.state.jobs]
-          const json = await deleteJobResponse.json();
-          deleteJobList[index] = json
-          console.log(index)
-          console.log(deleteJobResponse)
-          this.setState({jobs: deleteJobList})
-        } catch(error) {
-            console.log('Error with deleting Job!')
-            console.log(error)
-        }
-    }
+        .then(res => res.json())
+    .then(res => console.log(res))
+    .then((res) => {
+      let job= this.state.jobs;
+      job.splice(index,1);
+      this.setState({
+        job
+      })
+    })
+    .catch(err => console.log(err))
+  }
+
     render() {
         return (
-            <div>
+            <div className="jobList">
                 <h1>Jobs</h1>
                 <JobForm createJob={this.createJob}/>
                 {
@@ -110,9 +120,12 @@ class JobList extends Component {
                           {...job}
                           key={index}
                           editJob={this.editJob}
-                          index ={index}
-                          deleteJob={this.deleteJob}
+                          index ={job.id}
+                          deleteJob={() => this.deleteJob(job, job.id)}
+
                           />
+
+
                   )})
                 }
             </div>
