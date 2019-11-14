@@ -79,7 +79,7 @@ class JobList extends Component {
     }
 
     deleteJob = async (job, jobId, index) => {
-      try {
+
           const deleteJobResponse = await fetch('http://localhost:8081/job/delete/'+ jobId, {
           method: 'delete',
           headers: {
@@ -94,17 +94,18 @@ class JobList extends Component {
             salary: null
           })
         })
-          let deleteJobList = [...this.state.jobs]
-          const json = await deleteJobResponse.json();
-          deleteJobList[index] = json
-          console.log(index)
-          console.log(deleteJobResponse)
-          this.setState({jobs: deleteJobList})
-        } catch(error) {
-            console.log('Error with deleting Job!')
-            console.log(error)
-        }
-    }
+        .then(res => res.json())
+    .then(res => console.log(res))
+    .then((res) => {
+      let job= this.state.jobs;
+      job.splice(index,1);
+      this.setState({
+        job
+      })
+    })
+    .catch(err => console.log(err))
+  }
+
     render() {
         return (
             <div className="jobList">
@@ -118,9 +119,12 @@ class JobList extends Component {
                           {...job}
                           key={index}
                           editJob={this.editJob}
-                          index ={index}
+                          index ={job.id}
+                          deleteJob={() => this.deleteJob(job, job.id)}
 
                           />
+
+
                   )})
                 }
             </div>
