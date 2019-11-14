@@ -17,64 +17,69 @@ class JobForm extends Component {
 
     handleSubmit = (event) => {
     event.preventDefault()
-    this.props.createJob(this.state.newJob)
+    this.props.createJob(this.state.newJob, this.props.index)
 }
   render(){
     return(
       <div className="JobForm">
       <h1>Post a Job</h1>
 
-      <form onSubmit={this.submitForm}>
+      <form onSubmit={this.handleSubmit}>
         <div>
-        <input
-        type="text"
-        label="jobTitle"
-        value={this.jobTitle}
-        onChange={this.handleChange}
-        id="jobTitle"
-        placeholder="Job Title"
-        />
+        <label>Job Title</label>
+          <input
+          type="text"
+          label="jobTitle"
+          value={this.jobTitle}
+          onChange={this.handleChange}
+          id="jobTitle"
+          placeholder="Job Title"
+          />
         </div>
 
 
         <div>
-        <input
-        type="text"
-        label="companyName"
-        value={this.companyName}
-        onChange={this.handleChange}
-        id="companyName"
-        placeholder="Company Name"
-        />
+        <label>Company</label>
+          <input
+          type="text"
+          label="companyName"
+          value={this.companyName}
+          onChange={this.handleChange}
+          id="companyName"
+          placeholder="Company Name"
+          />
         </div>
 
         <div>
-        <input
-        type="text"
-        label="location"
-        value={this.location}
-        onChange={this.handleChange}
-        id="location"
-        placeholder="Location"
-        />
+        <label>Location</label>
+          <input
+          type="text"
+          label="location"
+          value={this.location}
+          onChange={this.handleChange}
+          id="location"
+          placeholder="Location"
+          />
         </div>
 
         <div>
-        <input
-        type="text"
-        label="salary"
-        value={this.salary}
-        onChange={this.handleChange}
-        id="salary"
-        placeholder="Salary"
-        />
+        <label>Salary</label>
+          <input
+          type="text"
+          label="salary"
+          value={this.salary}
+          onChange={this.handleChange}
+          id="salary"
+          placeholder="Salary"
+          />
         </div>
 
         <div>
-        <input type="submit" value="Create Job" />
+          <input type="submit" value="Create Job" />
         </div>
 
         </form>
+
       </div>
     );
   }

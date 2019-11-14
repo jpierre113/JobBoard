@@ -39,6 +39,7 @@ class JobList extends Component {
           })
         })
           const json = await newJobResponse.json();
+          console.log(json);
           const updatedJobList = [...this.state.jobs]
           updatedJobList.push(json)
           this.setState({jobs: updatedJobList})
@@ -106,9 +107,9 @@ class JobList extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="jobList">
                 <h1>Jobs</h1>
-
+                <JobForm createJob={this.createJob}/>
                 {
                 this.state.apiDataLoaded &&
                 this.state.jobs.map((job, index) => {
