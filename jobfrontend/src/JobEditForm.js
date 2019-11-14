@@ -68,8 +68,7 @@ class JobEditForm extends Component {
                     </div>
                 </form>
 
-                <hr />
-                <hr />
+
             </div>
         )
 

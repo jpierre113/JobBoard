@@ -1,8 +1,9 @@
 .App {
   text-align: center;
-  background-image: url("/desk.jpg");
+  background: #EFEFEF url("/desk.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
+
 }
 
 nav{
@@ -27,17 +28,65 @@ nav a{
   height: 650px;
 }
 
-.searchJob{
- /* background-color: lightGray; */
-
+.siteName{
+  color: #9FC0B9;
+  font-size: 150px;
+  padding-top:15%;
+  font-family: 'Lobster Two', cursive;
+  text-decoration: underline;
 }
 
 .JobForm{
-  background-size: 100%;
-  height: 650px;
+  height: 200px;
 }
 
+input{
+ padding: 2px;
+}
+
+input[type=submit]{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background-color: white;
+  color: black;
+  border: 2px solid #9FC0B9;
+  padding: 5px;
+  transition: .4s;
+  font-size: 20px;
+}
+input[type=submit]:hover{
+  background-color: #9FC0B9;
+  color: white;
+}
+
+button{
+  background-color: white;
+  color: black;
+  border: 2px solid #f44336;
+  transition: .4s;
+  font-size: 15px;
+}
+
+button:hover{
+  background-color: #f44336;
+  color: white;
+}
 .jobList{
-  background-size: 100%;
-  height: 1000px;
+
+
+}
+.JobPost{
+  background-color: rgba(255, 255, 255, .6);
+  width: 25%;
+  margin: 0 auto;
+
+}
+
+.JobFields{
+  padding-top: 10px;
+  width:70%;
+  margin: 0 auto;
+  color: rgba(159, 192, 185, 1);
+  font-weight: bold;
+
 }

@@ -14,20 +14,19 @@ class Job extends Component{
 
   render(){
     return (
-      <div>
+      <div className="JobPost">
+        <div className="JobFields">
           <p>{this.props.jobTitle}</p>
           <p>{this.props.companyName}</p>
           <p>{this.props.location}</p>
           <p>{this.props.salary}</p>
-
+          </div>
           <JobEditForm editJob={this.props.editJob} jobId={this.props.id} index={this.props.index}/>
 
           <button onClick={this.handleClick}>
             Delete Job
           </button>
-
-
-
+          <hr/>
       </div>
 
         )
