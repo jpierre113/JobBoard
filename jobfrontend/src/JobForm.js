@@ -13,15 +13,10 @@ class JobForm extends Component {
         const updatedNewJob = { ...this.state.newJob }
         updatedNewJob[attributeToChange] = newValue
         this.setState({ newJob: updatedNewJob })
-        console.log(updatedNewJob);
-        console.log(this.state.newJob);
-        console.log(newValue);
-        console.log(attributeToChange);
     }
 
     handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state.newJob);
     this.props.createJob(this.state.newJob, this.props.index)
 }
   render(){
