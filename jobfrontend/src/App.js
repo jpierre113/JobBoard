@@ -37,7 +37,7 @@ class App extends Component {
         <div>
           <nav>
             <Link to="/" className="link">Home</Link>{Home}
-            <Link to="/joblist" className="link">Job Board</Link>{JobList}
+            <Link to="/joblist" className="link">Post a Job/Job Board</Link>{JobList}
           </nav>
             <Route exact path="/" component={Home} />
             <Route exact path="/joblist" component={JobList}/>

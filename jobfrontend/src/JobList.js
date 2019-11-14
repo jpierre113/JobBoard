@@ -105,7 +105,7 @@ class JobList extends Component {
     render() {
         return (
             <div className="jobList">
-                <h1>Jobs</h1>
+
                 <JobForm createJob={this.createJob}/>
                 {
                 this.state.apiDataLoaded &&
@@ -119,6 +119,7 @@ class JobList extends Component {
                           deleteJob={() => this.deleteJob(job, job.id)}
 
                           />
+
 
 
                   )})
