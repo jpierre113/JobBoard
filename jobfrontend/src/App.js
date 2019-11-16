@@ -18,7 +18,7 @@ class App extends Component {
     }
     async componentDidMount() {
         try {
-            const response = await fetch('http://localhost:8081/job/list')
+            const response = await fetch('ec2-54-197-212-65.compute-1.amazonaws.com:8081/job/list')
             const data = await response.json()
             this.setState({
             jobs: data,
