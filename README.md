@@ -1,4 +1,4 @@
-# JobBoard
+# JobStack
 
 This application is a Job Board site where a job posting can be created, edited and deleted.
 
