@@ -12,7 +12,7 @@ class JobList extends Component {
 
     async componentDidMount() {
         try {
-            const response = await fetch('ec2-54-197-212-65.compute-1.amazonaws.com:8081/job/list')
+            const response = await fetch('http://ec2-54-197-212-65.compute-1.amazonaws.com:8081/job/list')
             const json = await response.json();
             this.setState({
             jobs: json,
@@ -24,7 +24,7 @@ class JobList extends Component {
 
     createJob = async (job, index) => {
       try {
-          const newJobResponse = await fetch('ec2-54-197-212-65.compute-1.amazonaws.com:8081/job/add', {
+          const newJobResponse = await fetch('http://ec2-54-197-212-65.compute-1.amazonaws.com:8081/job/add', {
           method: 'post',
           headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -49,7 +49,7 @@ class JobList extends Component {
 
     editJob = async (job, jobId, index) => {
       try {
-          const editJobResponse = await fetch('ec2-54-197-212-65.compute-1.amazonaws.com:8081/job/edit/'+ jobId, {
+          const editJobResponse = await fetch('http://ec2-54-197-212-65.compute-1.amazonaws.com:8081/job/edit/'+ jobId, {
           method: 'put',
           headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -76,7 +76,7 @@ class JobList extends Component {
 
     deleteJob = async (job, jobId, index) => {
 
-          const deleteJobResponse = await fetch('ec2-54-197-212-65.compute-1.amazonaws.com:8081/job/delete/'+ jobId, {
+          const deleteJobResponse = await fetch('http://ec2-54-197-212-65.compute-1.amazonaws.com:8081/job/delete/'+ jobId, {
           method: 'delete',
           headers: {
             'Accept': 'application/json, text/plain, */*',
