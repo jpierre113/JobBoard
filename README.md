@@ -1,6 +1,7 @@
 # JobStack
 
-This application is a Job Board site where a job posting can be created, edited and deleted.
+This application is a Job Board site where a job posting can be created, edited and deleted. 
+View the live project here: http://jobstacks.s3-website-us-east-1.amazonaws.com/
 
 - Backend: Java Springboot and Postgres. Springboot was used to establish my model(the object for my project), the repository, controller(the endpoints/paths for my application) and security(to bypass CORS issue with connect my frontend to the backend). Postgres is the database environment used to create my table and columns for the data. 
 
